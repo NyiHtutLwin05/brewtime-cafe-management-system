@@ -1,4 +1,3 @@
-# admin_dashboard.py
 import tkinter as tk
 from tkinter import ttk, messagebox
 from menu_screen import MenuScreen
