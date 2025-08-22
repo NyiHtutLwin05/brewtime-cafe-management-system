@@ -81,8 +81,8 @@ class AdminLoginScreen(tk.Frame):
             textvariable=self.password_var,
             show="*",
             style='Coffee.TEntry',
-            width=25,  # Wider entry field
-            font=("Arial", 14)  # Larger font
+            width=25,
+            font=("Arial", 14)
         )
         password_entry.grid(row=0, column=1, sticky="ew",
                             pady=(0, 8), padx=(10, 0))
