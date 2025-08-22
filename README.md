@@ -4,9 +4,9 @@ A comprehensive desktop application for cafe management built with Python and Tk
 
 ## 🎓 College Project
 **Course:** Software Engineering/Programming Fundamentals  
-**Institution:** [Your College Name]  
-**Academic Year:** 2023-2024  
-**Developed by:** [Your Name]
+**Institution:** WisdomC  
+**Academic Year:** 2025-2026  
+**Developed by:** Nyi Htut Lwin
 
 ## ✨ Features
 
