@@ -291,7 +291,7 @@ class OrderScreen(tk.Frame):
         # Remove item button
         remove_button = ttk.Button(
             summary_frame,
-            text="Remove Selected",
+            text="Select & Remove Item",
             command=self.remove_item,
             style='Coffee.TButton'
         )
