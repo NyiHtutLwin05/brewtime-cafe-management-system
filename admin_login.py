@@ -109,10 +109,21 @@ class AdminLoginScreen(tk.Frame):
         password_entry.bind('<Return>', lambda event: self.attempt_login())
 
     def attempt_login(self):
-        if self.password_var.get() == self.admin_password:
-            self.show_admin_dashboard()
-        else:
-            messagebox.showerror("Login Failed", "Incorrect password")
+        """
+         Validate login credentials.
+         If the entered password matches the stored admin password,
+         open the admin dashboard; otherwise, show an error message.
+        """
+        try:
+            # Check if password is correct
+            if self.password_var.get() == self.admin_password:
+                self.show_admin_dashboard()
+            else:
+                messagebox.showerror("Login Failed", "Incorrect password")
+        except Exception as e:
+            # Catch unexpected errors (e.g., missing variable, broken function)
+            messagebox.showerror(
+                "Error", f"An unexpected error occurred: {str(e)}")
 
     def show_admin_dashboard(self):
         for widget in self.parent.winfo_children():
