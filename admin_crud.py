@@ -28,7 +28,7 @@ class AddItemScreen(tk.Frame):
         # Back button
         back_button = ttk.Button(
             self,
-            text="← Back",
+            text="Back",
             command=self.go_back,
             style='Coffee.TButton'
         )
@@ -150,7 +150,6 @@ class AddItemScreen(tk.Frame):
 
         if success:
             from data import debug_menu_data
-            messagebox.showinfo("Success", "Item added successfully!")
             debug_menu_data()
             messagebox.showinfo("Success", "Item added successfully!")
             self.go_back()
@@ -190,7 +189,7 @@ class UpdateItemScreen(tk.Frame):
         # Back button
         back_button = ttk.Button(
             self,
-            text="← Back",
+            text="Back",
             command=self.go_back,
             style='Coffee.TButton'
         )
@@ -381,7 +380,7 @@ class DeleteItemScreen(tk.Frame):
         # Back button
         back_button = ttk.Button(
             self,
-            text="← Back",
+            text="Back",
             command=self.go_back,
             style='Coffee.TButton'
         )

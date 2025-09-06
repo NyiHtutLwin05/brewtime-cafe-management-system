@@ -494,7 +494,7 @@ class OrderScreen(tk.Frame):
         receipt = "BrewTime Cafe\n"
         receipt += "Thank you for your order!\n"
         receipt += f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n"
-        receipt += "-" * 40 + "\n"
+        receipt += "-" * 40 + "\n\n"
 
         total = 0
 
@@ -503,37 +503,40 @@ class OrderScreen(tk.Frame):
             base_price = get_item_base_price(item['category'], item['drink'])
         # Add size modifier
             size_modifier = self.size_prices[item['size']] / 100
-            base_price += size_modifier
+            item_base_price = base_price + size_modifier
 
-            # Calculate add-ons price
+        # Calculate add-ons price
             addons_price = sum(
                 self.addon_prices[addon] / 100
                 for addon in item['addons']
             )
 
-        # Item total
-            item_total = (base_price + addons_price) * item['quantity']
+        # Single item price (before quantity)
+            single_item_price = item_base_price + addons_price
+
+        # Item total (with quantity)
+            item_total = single_item_price * item['quantity']
             total += item_total
 
-        # Format the item line
-            receipt += f"{item['quantity']}x {item['drink']} ({item['size']})"
+        # Format the item line - show detailed breakdown
+            receipt += f"{item['quantity']}x {item['drink']} ({item['size']})\n"
+            receipt += f"  Base: ${item_base_price:.2f}\n"
 
-        # Add base price
-            receipt += f" ${base_price:.2f}"
-
-            # Add add-ons with their prices if any
+        # Add add-ons with their prices if any
             if item['addons']:
                 for addon in item['addons']:
                     addon_price = self.addon_prices[addon] / 100
-                    receipt += f"\n  + {addon} (+${addon_price:.2f})"
+                    receipt += f"  + {addon}: +${addon_price:.2f}\n"
 
-        # Add item subtotal
-        receipt += f"\n  Subtotal: ${item_total:.2f}\n\n"
+        # Show single item price and subtotal
+        receipt += f"  Price per item: ${single_item_price:.2f}\n"
+        receipt += f"  Subtotal: ${item_total:.2f}\n\n"
 
         receipt += "-" * 40 + "\n"
-        receipt += f"Total: ${total:.2f}\n"
+        receipt += f"TOTAL: ${total:.2f}\n"
         receipt += "-" * 40 + "\n"
-        receipt += "Enjoy your drinks!"
+        receipt += "Enjoy your drinks!\n"
+        receipt += "Thank you for visiting BrewTime Cafe!"
 
         return receipt
 

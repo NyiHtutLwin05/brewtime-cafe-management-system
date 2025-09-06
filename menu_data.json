@@ -2,7 +2,6 @@
     "Coffee": {
         "Americano": 2.5,
         "Latte": 3.0,
-        "Cappuccino": 3.0,
         "Espresso": 2.0
     },
     "Tea": {

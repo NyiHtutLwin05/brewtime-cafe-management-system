@@ -27,7 +27,7 @@ class AdminDashboard(tk.Frame):
         # Back button
         back_button = ttk.Button(
             self,
-            text="← Back",
+            text="Back",
             command=self.go_back,
             style='Coffee.TButton'
         )
